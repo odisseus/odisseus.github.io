@@ -10,7 +10,7 @@
 // The function gets called when the window is fully loaded
 window.onload = function() {
     // Get the canvas and context
-    var canvas = document.getElementById("viewport");
+    var canvas = document.createElement('canvas');
     var context = canvas.getContext("2d");
     context.canvas.width = window.innerWidth;
     context.canvas.height = window.innerHeight;
@@ -43,7 +43,7 @@ window.onload = function() {
     // The maximum number of iterations per pixel
     var maxiterations = 250;
 
-    var revealSteps = 30;
+    var revealSteps = 4;
     var currentStep = 0;
 
     // Initialize the game
@@ -64,20 +64,22 @@ window.onload = function() {
 
     // Main loop
     function main(tframe) {
-        var rate = Math.floor(imagew / revealSteps);
+        var middle = Math.floor(imageh / 2);
+        var rate = Math.floor(middle / revealSteps);
 
         // Reveal part of the pre-generated image
-        var x = rate * currentStep;
-        var y = 0;
-        var w = rate;
-        var h = imageh;
-        context.drawImage(bufferCanvas, x, y, w, h, x, y, w, h);
+        var x = 0;
+        var y = rate * currentStep;
+        var w = imagew;
+        var h = rate;
+        context.drawImage(bufferCanvas, x, middle - y - 1, w, h, x, middle - y - 1, w, h);
+        context.drawImage(bufferCanvas, x, middle + y, w, h, x, middle + y, w, h);
 
         document.body.style.background = "url(" + canvas.toDataURL() + ")";
         document.body.style.backgroundSize = "cover";
 
         // Request animation frames
-        if (currentStep < revealSteps) {
+        if (currentStep <= revealSteps) {
             currentStep = currentStep + 1;
             window.requestAnimationFrame(main);
         }
