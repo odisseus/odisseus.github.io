@@ -127,8 +127,8 @@ window.onload = function() {
         var ry = b;
 
         // Constants for the Julia set iteration
-        var cx = 0.27;
-        var cy = 0.49;
+        var cx = 0.3;
+        var cy = -0.01985;
 
         // Iterate
         var iterations = 0;
