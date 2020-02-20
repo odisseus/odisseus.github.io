@@ -12,8 +12,8 @@ window.onload = function() {
     // Get the canvas and context
     var canvas = document.createElement('canvas');
     var context = canvas.getContext("2d");
-    context.canvas.width = window.innerWidth;
-    context.canvas.height = window.innerHeight;
+    context.canvas.width = window.innerWidth * 2;
+    context.canvas.height = window.innerHeight * 2;
 
     var bufferCanvas = document.createElement('canvas');
     bufferCanvas.width = canvas.width;
@@ -77,6 +77,7 @@ window.onload = function() {
 
         document.body.style.background = "url(" + canvas.toDataURL() + ")";
         document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
 
         // Request animation frames
         if (currentStep <= revealSteps) {
@@ -127,6 +128,9 @@ window.onload = function() {
         var ry = b;
 
         // Constants for the Julia set iteration
+        // Alternative interesting values: 
+        // c = -0.07999999999999935 + 0.6501499999999973i 
+        // c = 0.240000000000001 + 0.5201499999999974i 
         var cx = 0.3;
         var cy = -0.01985;
 
