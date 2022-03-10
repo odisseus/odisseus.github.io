@@ -1,0 +1,39 @@
+<html>
+<body>
+<h1>Пункт пошуку житла для біженців</h1>
+<p>ul. Radziwiłłowska, 3 (Радзівілло́вська)</p>
+<p>tel. <a href="tel:+48722297726">+48 722 297 726</a></p>
+<p>tel. <a href="tel:+48722297725">+48 722 297 725</a></p>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+<div id="OSM-map" style="height: 1400px; width: 80%; margin: 0 auto;"></div>
+<script type="text/javascript">var map;
+var marker = [];
+var mapOptions = {
+    scrollWheelZoom: false,
+};
+
+var id = 'OSM-map';
+
+var centerLatLng = [50.06451543164545, 19.94733895797395];
+map = L.map(id, mapOptions).setView(centerLatLng, 17);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'generated with <a href="https://www.osm-generator.com/">osm-generator.com</a> - &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+
+marker = L.marker(
+    L.latLng(50.061850048296876, 19.94733895797395), {});
+marker.addTo(map);
+
+
+marker = L.marker(
+    L.latLng(50.06824121027248, 19.948068872809927), {});
+marker.addTo(map);
+
+</script>
+
+<body>
+</html>
