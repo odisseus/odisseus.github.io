@@ -114,6 +114,13 @@ window.onload = function() {
             }
         }
     }
+	
+    // Constants for the Julia set iteration
+    // Alternative interesting values: 
+    // c = -0.07999999999999935 + 0.6501499999999973i 
+    // c = 0.240000000000001 + 0.5201499999999974i 
+    const cx = 0.3 + Math.random() * 0.003 - 0.0015;
+    const cy = -0.01985 + Math.random() * 0.003 - 0.0015;
 
     // Calculate the color of a specific pixel
     function iterate(x, y, maxiterations) {
@@ -126,13 +133,6 @@ window.onload = function() {
         var b = y0;
         var rx = a;
         var ry = b;
-
-        // Constants for the Julia set iteration
-        // Alternative interesting values: 
-        // c = -0.07999999999999935 + 0.6501499999999973i 
-        // c = 0.240000000000001 + 0.5201499999999974i 
-        var cx = 0.3;
-        var cy = -0.01985;
 
         // Iterate
         var iterations = 0;
