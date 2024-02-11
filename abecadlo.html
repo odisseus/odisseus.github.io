@@ -1,0 +1,16 @@
+---
+layout: default
+scripts:
+  - abecadlo.js
+  - julia-fractal.js
+---
+<p>
+<label for="input"><h2>Wprowadź tekst cyrylicki:</h2></label>
+<textarea id="input" name="input" cols=80 rows=25></textarea>
+<button id="convert" type="button" onclick="convert()">Przetwórz</button>
+</p>
+<p>
+<label for="output"><h2>Transliteracja:</h2></label>
+<textarea readonly id="output" name="output" cols=80 rows=25></textarea>
+<button id="copy_output" type="button" onclick="copy_output()">Kopiuj do schowka</button>
+</p>
